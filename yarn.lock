@@ -5398,7 +5398,7 @@
 
 "@types/duo_web_sdk@^2.7.1":
   version "2.7.1"
-  resolved "https://artifacts.aue1e.internal:443/artifactory/api/npm/npm-okta-master/@types/duo_web_sdk/-/duo_web_sdk-2.7.1.tgz#9eba72a38adb0ea9e10ea1aefedd507c1e5a554f"
+  resolved "https://registry.yarnpkg.com/@types/duo_web_sdk/-/duo_web_sdk-2.7.1.tgz#9eba72a38adb0ea9e10ea1aefedd507c1e5a554f"
   integrity sha512-DePanZjFww36yGSxXwC8B3AsjrrDuPxEcufeh4gTqVsUMpCYByxjX4PERiYZdW0typzKSt9E4I14PPp+PrSIQA==
 
 "@types/easy-table@^0.0.33":
@@ -5766,9 +5766,9 @@
   integrity sha512-qjd88DrCxupx/kJD5yQgZdcYKZKSIGBVDIBE1/LTGcNm3d2Np/jxojkdePDdfnBHJc5W7vSMpbJ1aB7p/Py69A==
 
 "@types/node@^16.0.0":
-  version "16.18.25"
-  resolved "https://artifacts.aue1e.internal:443/artifactory/api/npm/npm-okta-master/@types/node/-/node-16.18.25.tgz#8863940fefa1234d3fcac7a4b7a48a6c992d67af"
-  integrity sha512-rUDO6s9Q/El1R1I21HG4qw/LstTHCPO/oQNAwI/4b2f9EWvMnqt4d3HJwPMawfZ3UvodB8516Yg+VAq54YM+eA==
+  version "16.18.33"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.33.tgz#0e91a6e18a006d3acfb3efa797cdcfc3a6598cd0"
+  integrity sha512-WjW7iYRVtePnSeLxVfE1e+g1yStJrfR9Anuv4y6JZVgOqYyFcW7GhPBk2/J1d0rC4ZNLrI13lS4e32NUuuRmHA==
 
 "@types/node@^17.0.2":
   version "17.0.2"
@@ -14248,7 +14248,7 @@ is-color-stop@^1.0.0:
     rgb-regex "^1.0.1"
     rgba-regex "^1.0.0"
 
-is-core-module@^2.10.0, is-core-module@^2.11.0, is-core-module@^2.4.0, is-core-module@^2.9.0:
+is-core-module@^2.10.0, is-core-module@^2.4.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.11.0.tgz#ad4cb3e3863e814523c96f3f58d26cc570ff0144"
   integrity sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==

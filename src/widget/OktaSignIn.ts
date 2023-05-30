@@ -92,7 +92,21 @@ export function createOktaSignIn
      * @param success - success callback function
      * @param error - error callback function
      */
-    renderEl(renderOptions: RenderOptions, successFn?: RenderSuccessCallback, errorFn?: RenderErrorCallback): Promise<RenderResult> {
+    async renderEl(renderOptions: RenderOptions, successFn?: RenderSuccessCallback, errorFn?: RenderErrorCallback): Promise<RenderResult> {
+      // Block the initial widget render if the tab is inactive until tab is active again
+      if (document.visibilityState !== 'visible') {
+        await new Promise<void>((resolve) => {
+          document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+              document.removeEventListener.call(this, 'visibilitychange', this);
+
+              setTimeout(resolve, 2000);
+            }
+          })
+        })
+      }
+      console.warn('~~Render~~');
+
       if (this.router) {
         throw new Error('An instance of the widget has already been rendered. Call remove() first.');
       }

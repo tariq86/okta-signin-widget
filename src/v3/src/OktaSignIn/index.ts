@@ -132,13 +132,28 @@ export default class OktaSignIn {
     }
   }
 
-  renderEl(
+  async renderEl(
     options: RenderOptions,
     onSuccess?: RenderSuccessCallback,
     onError?: RenderErrorCallback,
   ): Promise<RenderResult> {
     const { el } = options;
     this.el = el;
+
+          // Block the initial widget render if the tab is inactive until tab is active again
+          if (document.visibilityState !== 'visible') {
+            await new Promise<void>((resolve) => {
+              document.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'visible') {
+                  document.removeEventListener.call(this, 'visibilitychange', this);
+    
+                  setTimeout(resolve, 2000);
+                }
+              })
+            })
+          }
+          console.warn('~~Render~~');
+
 
     return new Promise<RenderResult>((resolve, reject) => {
       const onSuccessWrapper = (res: RenderResult): void => {
