@@ -103,8 +103,6 @@ const Form: FunctionComponent<{
     setWidgetRendered,
   ]);
 
-  console.log('UI Schema:', JSON.stringify(uischema));
-
   return (
     <Box
       component="form"
