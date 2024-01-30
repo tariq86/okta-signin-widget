@@ -36,7 +36,7 @@ import {
 import { mergeThemes } from 'src/util/mergeThemes';
 
 import Bundles from '../../../../util/Bundles';
-import { IDX_STEP, SUPPORTED_SERVER_GENERATED_SCHEMA_REMEDIATIONS } from '../../constants';
+import { IDX_STEP, SUPPORTED_SERVER_GENERATED_SCHEMA_REMEDIATIONS, UI_SCHEMA_SUPPORT_HEADER_KEY } from '../../constants';
 import { WidgetContextProvider } from '../../contexts';
 import {
   useInteractionCodeFlow,
@@ -379,7 +379,10 @@ export const Widget: FunctionComponent<WidgetProps> = (widgetProps) => {
     })) {
       return;
     }
-    authClient.http.setRequestHeader('X-UI-schema-capabilities', SUPPORTED_SERVER_GENERATED_SCHEMA_REMEDIATIONS.toString());
+    authClient.http.setRequestHeader(
+      UI_SCHEMA_SUPPORT_HEADER_KEY,
+      SUPPORTED_SERVER_GENERATED_SCHEMA_REMEDIATIONS.toString(),
+    );
     if (authClient.idx.canProceed()) {
       resume();
     } else {
