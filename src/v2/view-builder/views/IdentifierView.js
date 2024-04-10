@@ -344,7 +344,7 @@ export default BaseView.extend({
       
       //this.model.set({
       //  credentials
-      //});
+      //}); 
       //this.saveForm(this.model);
     }, (error) => {
       // Do not display if it is abort error triggered by code when switching.
