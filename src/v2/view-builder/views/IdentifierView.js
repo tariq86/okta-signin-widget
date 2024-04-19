@@ -334,18 +334,19 @@ export default BaseView.extend({
         signatureData: CryptoUtil.binToStr(assertion.response.signature)
       };
 
-      //this.options.appState.trigger('invokeAction', FORMS.LAUNCH_WEBAUTHN_AUTHENTICATOR);
-      const hasUserHandleSchema = this.options.appState.getSchemaByName('credentials.userHandle');
-      if (hasUserHandleSchema) {
+      //this.options.appState.trigger('invokeAction', RemediationForms.LAUNCH_WEBAUTHN_AUTHENTICATOR);
+      //const hasUserHandleSchema = this.options.appState.getSchemaByName('credentials.userHandle');
+      //if (hasUserHandleSchema) {
         _.extend(credentials, {
           userHandle: CryptoUtil.binToStr(assertion.response.userHandle ?? '')
         });
-      }
+      //}
       
       //this.model.set({
       //  credentials
       //}); 
       //this.saveForm(this.model);
+      this.options.appState.trigger('invokeAction', RemediationForms.CHALLENGE_AUTHENTICATOR, {'credentials': credentials});
     }, (error) => {
       // Do not display if it is abort error triggered by code when switching.
       // this.webauthnAbortController would be null if abort was triggered by code.
