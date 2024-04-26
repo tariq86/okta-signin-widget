@@ -309,18 +309,19 @@ export default BaseView.extend({
   },
 
   getCredentialsAndSave() {
-    // AbortController is not supported in IE11
-    if (typeof AbortController !== 'undefined') {
-      this.webauthnAbortController = new AbortController();
-    }
-
     const allowCredentials = [];
     const challengeData = this.options.appState.get('webauthnChallenge')?.challengeData;
+    if (!challengeData) return;
     const options = _.extend({}, challengeData, {
       allowCredentials,
       challenge: CryptoUtil.strToBin(challengeData.challenge),
     });
 
+    // AbortController is not supported in IE11
+    if (typeof AbortController !== 'undefined') {
+      this.webauthnAbortController = new AbortController();
+    }
+    
     // navigator.credentials() is not supported in IE11
     // eslint-disable-next-line compat/compat
     navigator.credentials.get({
